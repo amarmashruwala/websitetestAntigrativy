@@ -1,0 +1,61 @@
+---
+title: "Live Stream Automation Platform"
+summary: "Docker-containerized automation with Python, FFmpeg, and AWS ECS/Fargate reducing manual intervention by 30%"
+date: "2023"
+tags: ["Docker", "Python", "FFmpeg", "AWS ECS", "Fargate", "EventBridge", "CloudFormation"]
+category: "Cloud Infrastructure"
+challenge: "Manual stream setup and monitoring required significant operator time, introduced human error, and limited scalability across multiple concurrent broadcasts."
+approach: "Designed containerized automation using Python and FFmpeg running on AWS ECS/Fargate. Implemented EventBridge for scheduling and CloudFormation for multi-region infrastructure provisioning. Built automated health monitoring and recovery workflows."
+outcome: "Reduced manual intervention by 30%, improved stream reliability to 99%+ availability, enabled single operator to manage 10x concurrent streams, and delivered 50% infrastructure cost savings through optimized resource allocation."
+image: "/images/case-studies/live-stream-automation.jpg"
+---
+
+## System Overview
+
+The automation platform handles the complete lifecycle of live stream operations:
+
+1. **Scheduled Activation**: EventBridge triggers stream startup based on event calendar
+2. **Container Deployment**: ECS/Fargate launches FFmpeg encoder containers on demand
+3. **Signal Routing**: Automated ingest from multiple sources (SRT, RTMP, NDI)
+4. **Health Monitoring**: Continuous stream validation with automatic recovery
+5. **Graceful Shutdown**: Post-event cleanup and resource deallocation
+
+## Architecture Highlights
+
+### Containerized Encoding
+
+Each stream runs in an isolated Docker container with:
+- Custom FFmpeg build with hardware acceleration
+- Python orchestration layer for control and monitoring
+- CloudWatch Logs integration for observability
+- Automatic scaling based on concurrent stream count
+
+### Infrastructure as Code
+
+CloudFormation templates define:
+- ECS clusters and task definitions
+- EventBridge rules and targets
+- IAM roles and policies
+- CloudFront distributions for delivery
+- Multi-region failover configuration
+
+### Operational Excellence
+
+- **Auto-Recovery**: Failed containers automatically replaced within 30 seconds
+- **Alerting**: PagerDuty integration for critical failures
+- **Metrics**: Real-time dashboards showing stream health across all regions
+- **Cost Optimization**: Spot instances for non-critical workloads, auto-scaling
+
+## Technology Stack
+
+- AWS ECS/Fargate for container orchestration
+- FFmpeg for encoding and transcoding
+- Python for automation logic
+- AWS EventBridge for scheduling
+- CloudFormation for infrastructure provisioning
+- AWS CloudWatch for monitoring and logging
+- Amazon CloudFront for content delivery
+
+## Business Impact
+
+The automation platform transformed live streaming operations from a manual, error-prone process to a reliable, scalable service. Teams can now focus on content quality rather than technical operations, and the system scales seamlessly during peak demand periods.

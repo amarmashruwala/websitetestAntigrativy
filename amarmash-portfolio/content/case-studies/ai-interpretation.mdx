@@ -1,0 +1,42 @@
+---
+title: "Global AI Interpretation Pipeline"
+summary: "Real-time audio translation replacing traditional interpreters with AWS Bedrock and Amazon Polly"
+date: "2024"
+tags: ["AWS Bedrock", "Amazon Transcribe", "Amazon Polly", "Claude", "Real-time Translation", "DEI"]
+category: "AI & Automation"
+challenge: "Traditional live interpretation requires multiple human interpreters per language, creating significant cost and scalability limitations for global events."
+approach: "Built an end-to-end audio translation pipeline: Webex/Zoom audio ingest → AWS Transcribe for speech-to-text → Claude for translation (Japanese, Mandarin, Korean) → Amazon Polly for natural audio output. Integrated with existing streaming infrastructure for seamless delivery."
+outcome: "Reduced interpretation costs by 70%, enabled support for additional languages on-demand, improved accessibility for APAC audiences, and demonstrated clear DEI impact for high-profile events."
+image: "/images/case-studies/ai-interpretation.jpg"
+---
+
+## Technical Architecture
+
+The system processes audio in near real-time through a carefully orchestrated pipeline:
+
+1. **Audio Ingest**: Captured from Webex/Zoom meeting audio streams
+2. **Speech Recognition**: AWS Transcribe converts speech to text with language identification
+3. **Translation Layer**: Claude processes source text and translates to target languages
+4. **Audio Synthesis**: Amazon Polly generates natural-sounding speech in each target language
+5. **Distribution**: Translated audio routed to appropriate audience channels
+
+## Key Innovations
+
+- **Low Latency**: Optimized pipeline achieves sub-10-second end-to-end translation delay
+- **Multi-Language Support**: Easily extensible to additional languages without human interpreter recruitment
+- **Cost Efficiency**: 70% reduction compared to traditional interpretation services
+- **Scalability**: Can support unlimited concurrent language tracks based on demand
+- **Quality Control**: Human-in-the-loop option for critical events requiring verification
+
+## Technology Stack
+
+- AWS Transcribe for speech-to-text conversion
+- AWS Bedrock (Claude) for neural machine translation
+- Amazon Polly for text-to-speech synthesis
+- Custom Python orchestration layer
+- AWS Lambda for serverless processing
+- EventBridge for workflow automation
+
+## Impact
+
+This system has been deployed for multiple high-profile APAC events, enabling organizations to reach broader audiences while significantly reducing operational costs. The architecture demonstrates how generative AI can augment human capabilities in live event production.

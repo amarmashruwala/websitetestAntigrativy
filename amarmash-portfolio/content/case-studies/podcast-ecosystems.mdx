@@ -1,0 +1,99 @@
+---
+title: "Autonomous Podcast Ecosystems"
+summary: "Turn-key self-hosted podcast/radio architecture using Azuracast, Castopod, Owncast, and VDO.ninja"
+date: "2024"
+tags: ["Azuracast", "Castopod", "Owncast", "VDO.ninja", "Docker", "Self-Hosted", "Podcasting"]
+category: "Self-Hosted Infrastructure"
+challenge: "Traditional podcast and radio hosting platforms charge premium subscription fees while limiting customization, ownership, and integration capabilities."
+approach: "Built modular, self-hosted podcasting ecosystem using open-source tools: Azuracast for streaming radio, Castopod for podcast hosting with ActivityPub federation, Owncast for live video, and VDO.ninja for remote guest integration. All containerized with Docker for easy deployment."
+outcome: "Eliminated $200-400/month in subscription fees, achieved full digital sovereignty, enabled custom integrations, and created reproducible infrastructure that can be deployed anywhere in minutes."
+image: "/images/case-studies/podcast-ecosystems.jpg"
+---
+
+## Platform Components
+
+### Azuracast - Internet Radio Platform
+
+Self-hosted alternative to premium streaming services:
+- Live DJ support with AutoDJ fallback
+- Listener analytics and statistics
+- Multiple station support from single instance
+- API-driven automation and integration
+- Listener-facing web interface
+
+### Castopod - Podcast Hosting with Federation
+
+Modern podcast hosting with built-in ActivityPub:
+- Podcast RSS feed generation and hosting
+- Social federation via Fediverse integration
+- Listener analytics without third-party tracking
+- Episode scheduling and evergreen content
+- Custom branding and domain control
+
+### Owncast - Self-Hosted Live Streaming
+
+Twitch alternative you control:
+- RTMP ingest from OBS or hardware encoders
+- Built-in chat with moderation tools
+- Custom themes and branding
+- No viewer limits or bandwidth restrictions
+- Social features without platform dependency
+
+### VDO.ninja - Remote Guest Integration
+
+Browser-based video contribution:
+- No software installation for guests
+- High-quality video over WebRTC
+- Multiple guest support with director controls
+- NDI output for production integration
+- Privacy-focused (no accounts required)
+
+## Technical Implementation
+
+All components run as Docker containers orchestrated via Docker Compose:
+
+```yaml
+services:
+  azuracast:
+    image: ghcr.io/azuracast/azuracast:latest
+    ports:
+      - "80:80"
+      - "8000-8050:8000-8050"
+  
+  castopod:
+    image: nodeck/castopod:latest
+    depends_on:
+      - mariadb
+  
+  owncast:
+    image: owncast/owncast:latest
+    ports:
+      - "8080:8080"
+      - "1935:1935"
+```
+
+## Cost Comparison
+
+| Service | Traditional Cost | Self-Hosted Cost |
+|---------|-----------------|------------------|
+| Podcast Hosting (Ghost Pro) | $200/month | $0 (hardware only) |
+| Radio Streaming | $100-300/month | $0 |
+| Live Video (Twitch/YouTube) | Platform dependency | Full control |
+| **Total Annual** | **$3,600-6,000** | **~$300 (hardware)** |
+
+## Digital Sovereignty Benefits
+
+- **Data Ownership**: All listener data, analytics, and content under your control
+- **No Platform Risk**: No account suspensions, policy changes, or service shutdowns
+- **Custom Integrations**: Full API access for custom workflows and automation
+- **Cost Predictability**: One-time hardware investment vs. perpetual subscriptions
+- **Privacy**: No third-party tracking or data monetization
+
+## Deployment Patterns
+
+The system runs on minimal hardware:
+- Orange Pi Zero 3 ($25) for single-station setups
+- Raspberry Pi 4 or used mini-PC for multi-station deployments
+- Cloud VPS ($5-20/month) for global reach
+
+Each deployment includes automated backups, SSL via Cloudflare Tunnel, and monitoring dashboards.

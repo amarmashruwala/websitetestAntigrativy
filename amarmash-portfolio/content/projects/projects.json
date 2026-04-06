@@ -1,0 +1,102 @@
+[
+  {
+    "id": "ai-media-workflows",
+    "title": "AI Media Workflow Automation",
+    "description": "Automated video clipping, transcription, and social media distribution using AWS Bedrock and custom Python pipelines",
+    "category": "AI Media Workflows",
+    "tags": ["AWS Bedrock", "Python", "FFmpeg", "Automation"],
+    "status": "Production",
+    "year": "2024",
+    "link": null
+  },
+  {
+    "id": "self-hosted-broadcast",
+    "title": "24/7 Internet Radio Station",
+    "description": "Orange Pi-based radio station using Azuracast with AutoDJ, live input, and listener analytics",
+    "category": "Self-Hosted Broadcast",
+    "tags": ["Azuracast", "Docker", "Orange Pi", "Streaming"],
+    "status": "Production",
+    "year": "2024",
+    "link": null
+  },
+  {
+    "id": "cloud-streaming-platform",
+    "title": "Multi-Region Streaming Platform",
+    "description": "AWS-based live streaming infrastructure supporting 5,000+ annual broadcasts across APAC",
+    "category": "Cloud Streaming",
+    "tags": ["AWS MediaLive", "ECS", "CloudFront", "SRT"],
+    "status": "Production",
+    "year": "2023",
+    "link": null
+  },
+  {
+    "id": "audio-dsp-tools",
+    "title": "Max for Live Audio Processing",
+    "description": "Custom audio DSP devices for Ableton Live integrating with broadcast workflows",
+    "category": "Audio DSP Tools",
+    "tags": ["Max for Live", "Ableton", "Audio DSP", "Music Production"],
+    "status": "Experiment",
+    "year": "2024",
+    "link": null
+  },
+  {
+    "id": "open-source-broadcast",
+    "title": "Owncast Custom Distribution",
+    "description": "Modified Owncast build with multi-RTMP output and custom engagement features",
+    "category": "Open-Source Infrastructure",
+    "tags": ["Owncast", "Go", "RTMP", "Open Source"],
+    "status": "Experiment",
+    "year": "2024",
+    "link": "https://github.com/amarmashruwala"
+  },
+  {
+    "id": "remote-studio-systems",
+    "title": "Federated Studio Network",
+    "description": "Multi-location studio infrastructure with synchronized recording and remote direction",
+    "category": "Remote Studio Systems",
+    "tags": ["Tailscale", "RustDesk", "NDI", "Remote Production"],
+    "status": "Production",
+    "year": "2024",
+    "link": null
+  },
+  {
+    "id": "voice-agent-platform",
+    "title": "Conversational Voice Agents",
+    "description": "Industry-specific voice agents for appointment booking, FAQ, and lead qualification",
+    "category": "AI Media Workflows",
+    "tags": ["Voice AI", "n8n", "Twilio", "Automation"],
+    "status": "Production",
+    "year": "2024",
+    "link": null
+  },
+  {
+    "id": "webrtc-engagement",
+    "title": "Audience Engagement Platform",
+    "description": "WebRTC-based viewer participation system for live streams with AI moderation",
+    "category": "Cloud Streaming",
+    "tags": ["WebRTC", "VDO.ninja", "Ollama", "Engagement"],
+    "status": "Experiment",
+    "year": "2024",
+    "link": null
+  },
+  {
+    "id": "podcast-infrastructure",
+    "title": "Castopod Federation Network",
+    "description": "Federated podcast hosting with ActivityPub integration and cross-platform distribution",
+    "category": "Self-Hosted Broadcast",
+    "tags": ["Castopod", "ActivityPub", "Podcasting", "Fediverse"],
+    "status": "Production",
+    "year": "2024",
+    "link": null
+  },
+  {
+    "id": "media-orchestration",
+    "title": "Containerized Media Orchestration",
+    "description": "Kubernetes-based media processing pipeline with auto-scaling and cost optimization",
+    "category": "Open-Source Infrastructure",
+    "tags": ["Kubernetes", "Docker", "FFmpeg", "AWS EKS"],
+    "status": "Production",
+    "year": "2023",
+    "link": null
+  }
+]

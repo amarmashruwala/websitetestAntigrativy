@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground: #0A0A0C;
+  --background: #FAFAFA;
+  --accent: #00D4AA;
+}
+
+.dark {
+  --foreground: #FAFAFA;
+  --background: #0A0A0C;
+  --accent: #00D4AA;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 139, 139, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 139, 139, 0.5);
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--accent);
+  color: #000;
+}
+
+/* Grid pattern utilities */
+.bg-grid-light {
+  background-image: linear-gradient(to right, rgba(139, 139, 139, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(139, 139, 139, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.bg-grid-dark {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Signal line animation */
+@keyframes flow-line {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-flow-line {
+  animation: flow-line 2s linear infinite;
+}
+
+/* Component utilities */
+.component-link {
+  @apply relative inline-flex items-center gap-2 text-accent hover:text-accent-hover transition-colors duration-200;
+}
+
+.component-link::after {
+  content: '';
+  @apply absolute -bottom-1 left-0 w-0 h-px bg-accent transition-all duration-200;
+}
+
+.component-link:hover::after {
+  @apply w-full;
+}
+
+.section-divider {
+  @apply h-px w-full bg-foreground/10 dark:bg-foreground/5;
+}
+
+/* Typography utilities */
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Focus styles */
+:focus-visible {
+  @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-background dark:ring-offset-background-dark;
+}
+
+/* Prose styling for articles */
+.prose {
+  @apply text-base leading-relaxed;
+}
+
+.prose h2 {
+  @apply font-display font-semibold text-2xl mt-12 mb-4;
+}
+
+.prose h3 {
+  @apply font-semibold text-xl mt-8 mb-4;
+}
+
+.prose p {
+  @apply mb-4;
+}
+
+.prose ul {
+  @apply list-disc pl-6 mb-4 space-y-2;
+}
+
+.prose li {
+  @apply mb-2;
+}
+
+.prose strong {
+  @apply font-semibold;
+}
+
+.prose a {
+  @apply text-accent hover:text-accent-hover underline;
+}
+
+/* Line clamp utilities */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

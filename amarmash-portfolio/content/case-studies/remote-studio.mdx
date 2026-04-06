@@ -1,0 +1,166 @@
+---
+title: "Remote Studio Infrastructure"
+summary: "Remote-access podcast/video studio with Tailscale, RustDesk, secure access, and globally distributed operation"
+date: "2024"
+tags: ["Tailscale", "RustDesk", "Remote Access", "Digital Sovereignty", "Zero Trust", "Studio Infrastructure"]
+category: "Remote Operations"
+challenge: "Professional podcast and video studios require on-site presence for operation, limiting geographic flexibility, increasing travel costs, and creating single points of failure for content production."
+approach: "Built remotely accessible studio infrastructure using Tailscale for zero-trust networking, RustDesk for self-hosted remote desktop, and automated studio control systems. Deployed in India with full remote operation from Sydney, enabling globally distributed production."
+outcome: "Achieved full studio operation from 10,000km away, eliminated travel requirements for content production, demonstrated reproducible infrastructure blueprint, and maintained complete digital sovereignty with self-hosted remote access."
+image: "/images/case-studies/remote-studio.jpg"
+---
+
+## Infrastructure Overview
+
+### Physical Studio Location
+
+- Podcast/video recording studio in India
+- Professional audio interfaces, cameras, lighting
+- Local playback and monitoring systems
+- NDI network for video routing
+- Backup power and internet connectivity
+
+### Remote Access Architecture
+
+#### Tailscale Zero-Trust Network
+
+- Mesh VPN connecting all studio devices
+- No open ports on router (Cloudflare Tunnel)
+- Device authentication via SSO
+- Granular access controls per device
+- End-to-end encryption for all traffic
+
+#### RustDesk Self-Hosted Remote Desktop
+
+- Self-hosted relay server (no third-party access)
+- GPU-accelerated remote desktop streaming
+- Low-latency audio/video transmission
+- Unattended access for automated operations
+- Full control over connection data
+
+## Technical Implementation
+
+### RustDesk Deployment
+
+```yaml
+# Docker Compose for RustDesk relay
+services:
+  hbbs:
+    image: rustdesk/rustdesk-server:latest
+    command: hbbs -r rustdesk.example.com:21117
+    ports:
+      - "21115:21115"
+      - "21116:21116"
+      - "21116:21116/udp"
+      - "21118:21118"
+    volumes:
+      - ./data:/root
+    restart: unless-stopped
+
+  hbbr:
+    image: rustdesk/rustdesk-server:latest
+    command: hbbr
+    ports:
+      - "21117:21117"
+    volumes:
+      - ./data:/root
+    depends_on:
+      - hbbs
+    restart: unless-stopped
+```
+
+### Tailscale Configuration
+
+- All studio devices join Tailscale network
+- ACLs restrict access to authorized users only
+- Subnet router exposes local network resources
+- Exit node for secure internet access from studio
+- Automatic key rotation and device expiry
+
+### Studio Control Systems
+
+- OBS Studio with remote scene control
+- Audio mixer with network API (Yamaha, Rode)
+- Lighting control via DMX over IP
+- PTZ camera control over network
+- Automated recording and upload workflows
+
+## Security Architecture
+
+### Zero-Trust Principles
+
+- **Never Trust, Always Verify**: Every connection authenticated
+- **Least Privilege Access**: Devices only access required resources
+- **Micro-Segmentation**: Studio network isolated from public internet
+- **Continuous Monitoring**: Connection logging and anomaly detection
+
+### Network Security
+
+- No port forwarding on router
+- Cloudflare Tunnel for outbound-only connections
+- Encrypted VPN for all remote access
+- Multi-factor authentication for all services
+- Automatic security updates on all systems
+
+### Data Sovereignty
+
+- All recording data stored locally in India
+- Remote access does not transfer content to third parties
+- Self-hosted services maintain full data control
+- Compliance with local data residency requirements
+
+## Operational Workflows
+
+### Remote Recording Session
+
+```
+1. Producer in Sydney connects via Tailscale
+2. RustDesk session establishes to studio control PC
+3. OBS and audio systems ready for remote operation
+4. Talent in India operates local equipment
+5. Recording stored locally, synced to cloud post-session
+6. Remote producer monitors and directs in real-time
+```
+
+### Automated Operations
+
+- Scheduled recording automation
+- Auto-upload to cloud storage (S3, Backblaze)
+- Automated backup to secondary location
+- Health monitoring and alerting
+- Remote reboot and troubleshooting
+
+## Cost Analysis
+
+| Component | Traditional Solution | Self-Hosted Approach |
+|-----------|---------------------|---------------------|
+| Remote Desktop (TeamViewer) | $50-200/month | $0 (self-hosted) |
+| VPN Service | $30-100/month | $0 (Tailscale free tier) |
+| Studio Operator Travel | $5,000-10,000/year | $0 (remote operation) |
+| **Total Annual** | **$11,000-22,000** | **~$500 (hardware)** |
+
+## Reproducibility
+
+This infrastructure is fully documented and reproducible:
+
+- Infrastructure as Code (Terraform/Ansible)
+- Docker Compose for all services
+- Configuration management and version control
+- Deployment runbooks and operational documentation
+- Training materials for remote operation
+
+## Future Enhancements
+
+- AI-powered automated editing workflows
+- Multi-studio federation for global production
+- Advanced audio processing with AI enhancement
+- Automated caption generation and translation
+- Integration with distribution platforms (Spotify, Apple, YouTube)
+
+## Lessons Learned
+
+1. **Latency Management**: Audio monitoring requires local loopback, not remote
+2. **Redundancy Critical**: Backup internet and power essential for reliability
+3. **Local Talent Partnership**: On-site operator for equipment setup and troubleshooting
+4. **Documentation**: Detailed runbooks reduce remote troubleshooting time
+5. **Testing**: Regular connectivity tests prevent production issues

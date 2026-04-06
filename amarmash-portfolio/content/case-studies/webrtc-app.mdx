@@ -1,0 +1,108 @@
+---
+title: "WebRTC Video Meeting + Streaming App"
+summary: "Interactive low-latency video app with AI chatbot integrations and audience engagement tooling"
+date: "2024"
+tags: ["WebRTC", "VDO.ninja", "Ollama", "Google Gemini", "Twitch", "Audience Engagement"]
+category: "Real-Time Applications"
+challenge: "Traditional streaming platforms lack real-time audience interaction capabilities, creating passive viewing experiences with limited engagement and community building."
+approach: "Built interactive video application using VDO.ninja SDK for WebRTC capabilities, Google Sheets frontend for rapid prototyping, and Claude Code backend. Integrated AI chatbot (Ollama + Gemini) for automated audience engagement and low-latency streaming to Twitch."
+outcome: "Enabled real-time audience participation in live streams, reduced engagement setup time from hours to minutes, demonstrated new formats for interactive content, and created foundation for monetizable engagement features."
+image: "/images/case-studies/webrtc-app.jpg"
+---
+
+## Application Architecture
+
+### Frontend: Google Sheets Interface
+
+Using Google Sheets as a rapid-development frontend:
+- Participant registration and queue management
+- Stream control interface for producers
+- Real-time status updates via Apps Script
+- Zero-deployment updates and collaboration
+
+### Backend: Claude Code + Custom APIs
+
+Server-side orchestration handles:
+- WebRTC session management
+- Participant authentication and authorization
+- Stream routing and composition
+- AI chatbot integration
+- Analytics and logging
+
+### Video Pipeline: VDO.ninja SDK
+
+Core WebRTC functionality:
+- Browser-based video capture (no installation)
+- Low-latency peer-to-peer connections
+- Multi-guest director controls
+- NDI/SDI output for production
+- OBS integration via browser source
+
+## AI Engagement Features
+
+### Chatbot Integration
+
+- **Ollama Local Models**: Llama 3, Gemma for privacy-first responses
+- **Google Gemini Cloud**: High-parameter models for complex queries
+- **Trigger-Based Activation**: Keyword detection ("bot", "question")
+- **Context Awareness**: Conversation history and stream topic awareness
+
+### Engagement Automation
+
+- Welcome messages for new viewers
+- Q&A moderation and prioritization
+- Poll creation and result display
+- Highlight clip generation
+- Social media cross-posting
+
+## Streaming Output
+
+### Twitch Integration
+
+- Low-latency streaming via RTMP
+- Chat synchronization for engagement
+- Stream markers for highlight detection
+- Multi-stream output (Twitch + YouTube + custom)
+
+### Production Features
+
+- Scene composition with multiple video sources
+- Graphics overlay integration
+- Audio mixing and processing
+- Recording and VOD generation
+
+## Technology Stack
+
+- VDO.ninja for WebRTC video infrastructure
+- Google Sheets + Apps Script for frontend
+- Claude Code for backend logic
+- Ollama for local AI inference
+- Google Gemini for cloud AI
+- OBS Studio for production compositing
+- Twitch API for streaming integration
+
+## Use Cases
+
+### Interactive Town Halls
+
+Audience members join video grid, ask questions directly, AI chatbot moderates and prioritizes topics.
+
+### Live Podcast Recording
+
+Remote guests via WebRTC, live audience participation, automated clip generation for social media.
+
+### Educational Workshops
+
+Student video participation, AI teaching assistant for Q&A, recorded sessions with chapter markers.
+
+### Community Events
+
+Open mic formats, audience voting, real-time engagement metrics, multi-platform distribution.
+
+## Future Development
+
+- Custom React frontend for production deployment
+- Mobile app for participant access
+- Advanced AI moderation (sentiment, spam detection)
+- Monetization features (tickets, tips, subscriptions)
+- Analytics dashboard for engagement insights
