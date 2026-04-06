@@ -1,1 +1,5 @@
 Resume placeholder - Replace with actual PDF
+
+To add your resume:
+1. Save your resume as 'resume.pdf' in the /public folder
+2. Or replace this file with your actual PDF

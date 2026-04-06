@@ -91,14 +91,41 @@ export default function CaseStudies() {
             >
               {/* Image - Alternating sides */}
               <div className={index % 2 === 1 ? 'md:order-2' : ''}>
-                <div className="aspect-[16/10] relative bg-foreground/5 dark:bg-foreground/10 rounded-2xl overflow-hidden">
-                  {/* Placeholder for case study image */}
-                  <div className="absolute inset-0 flex items-center justify-center text-foreground-muted dark:text-foreground-muted-dark">
-                    <div className="text-center p-8">
-                      <div className="w-24 h-24 mx-auto mb-4 rounded-xl bg-foreground/10 dark:bg-foreground/20 flex items-center justify-center">
-                        <span className="text-2xl font-mono">{study.tags[0]}</span>
+                <div className={`aspect-[16/10] relative rounded-2xl overflow-hidden ${
+                  index === 0 ? 'bg-gradient-to-br from-signal/20 to-accent/20 dark:from-signal/10 dark:to-accent/10' :
+                  index === 1 ? 'bg-gradient-to-br from-accent/20 to-accent-secondary/20 dark:from-accent/10 dark:to-accent-secondary/10' :
+                  index === 2 ? 'bg-gradient-to-br from-purple-500/20 to-pink-500/20 dark:from-purple-500/10 dark:to-pink-500/10' :
+                  index === 3 ? 'bg-gradient-to-br from-blue-500/20 to-cyan-500/20 dark:from-blue-500/10 dark:to-cyan-500/10' :
+                  index === 4 ? 'bg-gradient-to-br from-amber-500/20 to-orange-500/20 dark:from-amber-500/10 dark:to-orange-500/10' :
+                  'bg-gradient-to-br from-emerald-500/20 to-teal-500/20 dark:from-emerald-500/10 dark:to-teal-500/10'
+                }`}>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="grid grid-cols-3 gap-2 opacity-30 dark:opacity-20">
+                      {[...Array(9)].map((_, i) => (
+                        <div key={i} className={`w-8 h-8 rounded-lg ${
+                          index === 0 ? 'bg-signal' :
+                          index === 1 ? 'bg-accent' :
+                          index === 2 ? 'bg-purple-500' :
+                          index === 3 ? 'bg-blue-500' :
+                          index === 4 ? 'bg-amber-500' :
+                          'bg-emerald-500'
+                        }`} />
+                      ))}
+                    </div>
+                  </div>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className={`w-16 h-16 mx-auto mb-3 rounded-2xl flex items-center justify-center ${
+                        index === 0 ? 'bg-signal/20' :
+                        index === 1 ? 'bg-accent/20' :
+                        index === 2 ? 'bg-purple-500/20' :
+                        index === 3 ? 'bg-blue-500/20' :
+                        index === 4 ? 'bg-amber-500/20' :
+                        'bg-emerald-500/20'
+                      }`}>
+                        <span className="text-xl font-mono font-semibold opacity-60">{study.tags[0].split(' ')[0]}</span>
                       </div>
-                      <p className="text-sm">Project Diagram Placeholder</p>
+                      <p className="text-xs font-medium opacity-40">{study.title.split(' ')[0]} {study.title.split(' ')[1]}</p>
                     </div>
                   </div>
                 </div>
